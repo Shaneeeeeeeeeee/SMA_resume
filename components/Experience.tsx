@@ -45,7 +45,7 @@ export default function Experience() {
                   </h3>
                 </div>
                 <p className="dark:text-amber-300 text-amber-700 font-semibold mb-2 text-lg">Amazon</p>
-                <p className="dark:text-gray-400 text-gray-600 mb-8">Jun 2025 – Aug 2025</p>
+                <p className="dark:text-gray-400 text-gray-600 mb-8">June 2025 – Aug 2025</p>
                 
                 {/* Bullet Points */}
                 <div className="space-y-4 mt-6">
