@@ -21,7 +21,7 @@ export default function Footer() {
           transition={{ delay: 0.2 }}
           className="dark:text-gray-500 text-gray-500 text-sm"
         >
-          © 2025 Sheena Mae Arquillo. All rights reserved.
+          © 2026 Sheena Mae Arquillo. All rights reserved.
         </motion.p>
       </div>
     </footer>
