@@ -9,8 +9,8 @@ export default function Background() {
 
   const backgroundPoints = [
     {
-      title: 'Motivated BSIT – Business Analytics Student',
-      description: 'Currently pursuing a Bachelor of Science in Information Technology with a focus on Business Analytics, demonstrating strong analytical and technical capabilities.',
+      title: 'Motivated Full Stack Developer with Business Analytics Major',
+      description: 'Bachelor of Science in Information Technology with a focus on Business Analytics, demonstrating strong analytical and technical capabilities.',
       icon: '🎓',
       highlight: ['BSIT', 'Business Analytics', 'analytical', 'technical']
     },
@@ -27,10 +27,10 @@ export default function Background() {
       highlight: ['leadership', 'capstone', 'teams', 'projects']
     },
     {
-      title: 'Committed to Onsite Work',
-      description: 'Fully willing and committed to work onsite, ready to contribute to team success with dedication and professionalism.',
+      title: 'Flexible Setup for Work',
+      description: 'Fully flexible schedule, ready to contribute to team success with dedication and professionalism.',
       icon: '💼',
-      highlight: ['onsite', 'committed', 'professional']
+      highlight: ['flexible', 'committed', 'professional']
     }
   ]
 
