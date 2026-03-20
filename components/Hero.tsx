@@ -56,13 +56,13 @@ export default function Hero() {
             className="text-xl md:text-2xl dark:text-yellow-300 text-yellow-700 font-semibold mb-4"
             variants={itemVariants}
           >
-            BSIT – Business Analytics Track (4th Year Student)
+            BSIT Major in Business Analytics (Full Stack Developer)
           </motion.div>
           <motion.div
             className="text-lg dark:text-gray-300 text-gray-700 mb-8"
             variants={itemVariants}
           >
-            Batangas State University – Lipa City, Batangas
+            Lipa City, Batangas
           </motion.div>
         </motion.div>
 
