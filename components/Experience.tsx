@@ -1,77 +1,164 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import SectionShell from './SectionShell'
+
+interface Role {
+  role: string
+  company: string
+  current?: boolean
+  meta: string
+  period: string
+  location: string
+  bullets: string[]
+  skills: string[]
+}
+
+const experiences: Role[] = [
+  {
+    role: 'Full-Stack Developer',
+    company: 'Tee Vision Printing (TVP)',
+    current: true,
+    meta: 'Frontend · Backend · Internal Tools · Remote',
+    period: 'Apr 2026 to Present',
+    location: 'Philadelphia, PA · Remote',
+    bullets: [
+      'Cut operating costs by 60% by refactoring a fragmented codebase into structured, maintainable code and consolidating hosting.',
+      'Replaced a slow, disconnected clock-in tool with the TVP Employee Portal: one React PWA used by 15 staff for role-based login, time tracking, shared availability, notes to anyone on the team, and project management.',
+      'Designed and shipped two more internal systems, an expenses / Ads / SEO operations portal and CRM + authentication tooling, for three TVP systems in total, all built in-house.',
+      'Built these tools to organize and analyze business data in real time, so the team can decide from live numbers instead of manual collation.',
+      'Maintain and improve the live Tee Vision Printing website (teevisionprinting.com): cleanup, UX, performance, and production fixes as part of the engineering team.',
+      'Google Ads work: conversion tracking, campaign performance review, and pairing Ads data with Microsoft Clarity to guide site improvements.',
+      'Supported technical SEO (checks and indexing) and prepared stakeholder reports from product and campaign data.',
+    ],
+    skills: [
+      'Google Ads',
+      'Frontend',
+      'Backend',
+      'Internal Tools',
+      'Cost Optimization',
+      'Microsoft Clarity',
+      'SEO',
+    ],
+  },
+  {
+    role: 'Freelance Systems Developer',
+    company: 'Thesis & Capstone Commissions',
+    meta: 'Project Lead · Full-Stack · Philippines',
+    period: 'Ongoing',
+    location: 'Philippines',
+    bullets: [
+      'Lead commissioned thesis and capstone systems end to end: scoping, build, UAT, and production deployment.',
+      'Delivered DFB Smart Shop (ecommerce with AI visual search) and Automated Sales and Inventory (pharmacy POS with demand forecasting), both live in production.',
+    ],
+    skills: ['Project Lead', 'Frontend', 'Backend', 'UAT', 'Documentation'],
+  },
+  {
+    role: 'Product & Innovation Intern',
+    company: 'Tech Executive Labs I.T. Solutions',
+    meta: 'Internship · Hybrid',
+    period: 'Feb to May 2026',
+    location: 'Batangas, Calabarzon',
+    bullets: [
+      'Led website information architecture and digital publishing workflows for the Bookside product.',
+      'Designed UI/UX prototypes in Figma and translated business requirements into clearer product direction.',
+      'Researched implementation options and improved platform performance from usage and feedback.',
+    ],
+    skills: ['IT Business Analysis', 'UI/UX', 'Figma', 'Process Optimization'],
+  },
+  {
+    role: 'Customer Service Representative',
+    company: 'Amazon / Alorica (SM Lipa City)',
+    meta: 'Full-time',
+    period: 'Jun to Aug 2025',
+    location: 'Lipa, Calabarzon',
+    bullets: [
+      'Resolved high-volume customer issues under SLA pressure and earned team commendations plus performance incentives.',
+    ],
+    skills: ['CRM', 'Communication', 'Customer Support'],
+  },
+]
+
+const ease = [0.22, 1, 0.36, 1] as const
 
 export default function Experience() {
   return (
-    <section id="experience" className="py-20 px-6 relative overflow-hidden backdrop-blur-[0.5px]">
-      <div className="max-w-5xl mx-auto relative z-10">
-        <motion.h2
-          className="text-4xl md:text-5xl font-bold mb-16 text-center bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Experience
-        </motion.h2>
-
-        {/* Organized Timeline Layout */}
-        <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-amber-500 to-yellow-500 transform -translate-x-1/2 hidden md:block"></div>
-
-          {/* Experience Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
+    <SectionShell
+      id="experience"
+      index="01"
+      title="Experience"
+      eyebrow="Career"
+      caption="Four roles across product engineering, growth, and delivery. Currently shipping production work for a US apparel brand."
+    >
+      <div className="-mx-4 md:-mx-6">
+        {experiences.map((exp, index) => (
+          <motion.article
+            key={exp.company}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="relative"
+            viewport={{ once: true, margin: '-12% 0px -8% 0px' }}
+            transition={{ duration: 0.7, delay: index * 0.06, ease }}
+            className="group relative rounded-2xl px-4 py-9 transition-colors duration-500 hover:bg-[color-mix(in_srgb,var(--accent)_5%,transparent)] md:px-6 md:py-11"
           >
-            {/* Center dot */}
-            <div className="hidden md:block absolute left-1/2 w-6 h-6 bg-orange-400 rounded-full border-4 dark:border-gray-900 border-white transform -translate-x-1/2 z-20 shadow-lg top-0"></div>
+            {/* hairline divider that turns gold on hover */}
+            <span className="absolute inset-x-4 top-0 h-px bg-line md:inset-x-6" />
+            <span className="absolute inset-x-4 top-0 h-px origin-left scale-x-0 bg-accent transition-transform duration-700 ease-out group-hover:scale-x-100 md:inset-x-6" />
 
-            {/* Main Card */}
-            <div className="bg-gradient-to-br dark:from-gray-800/95 dark:to-gray-900/95 from-white/95 to-gray-50/95 backdrop-blur-xl p-8 rounded-3xl border-2 dark:border-orange-500/40 border-orange-400/60 shadow-2xl relative overflow-hidden">
-              {/* Decorative corner */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/20 to-transparent rounded-bl-full"></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-3 h-3 bg-orange-400 rounded-full"></div>
-                  <h3 className="text-2xl font-bold dark:text-orange-300 text-orange-700">
-                    Customer Service Representative
-                  </h3>
-                </div>
-                <p className="dark:text-amber-300 text-amber-700 font-semibold mb-2 text-lg">Amazon</p>
-                <p className="dark:text-gray-400 text-gray-600 mb-8">June 2025 – Aug 2025</p>
-                
-                {/* Bullet Points */}
-                <div className="space-y-4 mt-6">
-                  {[
-                    'Handled work under pressure and received commendations from customers, earning company incentives.',
-                    'Developed strong communication skills, interacting effectively with stressed or upset customers.',
-                    'Coordinated with teams to improve workflow processes.'
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.2 + index * 0.1, duration: 0.6 }}
-                      className="flex items-start gap-4 p-4 bg-gradient-to-r dark:from-gray-700/60 dark:to-gray-800/60 from-gray-50/80 to-white/80 rounded-xl border-l-4 border-amber-500 hover:border-orange-400 transition-all duration-300"
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <span className="font-mono text-[10px] tabular-nums tracking-[0.2em] text-accent">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              {exp.current && (
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-0.5 font-mono text-[9.5px] uppercase tracking-[0.16em] text-accent">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
+                  Current
+                </span>
+              )}
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
+                {exp.period}
+              </span>
+              <span className="text-line">/</span>
+              <span className="font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted">
+                {exp.location}
+              </span>
+            </div>
+
+            <div className="mt-5 grid gap-x-10 gap-y-6 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
+              <div>
+                <h3 className="t-display text-[1.75rem] font-semibold leading-[1.05] transition-colors duration-300 group-hover:text-accent md:text-[2.15rem]">
+                  {exp.role}
+                </h3>
+                <p className="mt-2 text-base text-muted">{exp.company}</p>
+                <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.14em] text-accent2">
+                  {exp.meta}
+                </p>
+              </div>
+
+              <div>
+                <ul className="space-y-3">
+                  {exp.bullets.map((item, i) => (
+                    <li
+                      key={i}
+                      className="grid grid-cols-[auto_1fr] gap-3.5 text-sm leading-relaxed text-muted md:text-[0.95rem]"
                     >
-                      <span className="text-2xl text-orange-400 mt-0">▸</span>
-                      <p className="dark:text-gray-200 text-gray-800 flex-1 text-sm leading-relaxed">{item}</p>
-                    </motion.div>
+                      <span className="mt-[0.55rem] h-1 w-1 shrink-0 rounded-full bg-accent" />
+                      <span>{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
+
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {exp.skills.map((skill) => (
+                    <li key={skill} className="chip">
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </motion.article>
+        ))}
       </div>
-    </section>
+    </SectionShell>
   )
 }

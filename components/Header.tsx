@@ -1,62 +1,188 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useTheme } from '@/contexts/ThemeContext'
-import { FiSun, FiMoon } from 'react-icons/fi'
+import { FiSun, FiMoon, FiMenu, FiX, FiArrowUpRight } from 'react-icons/fi'
+
+const links = [
+  { href: '#experience', label: 'Experience' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#about', label: 'About' },
+  { href: '#education', label: 'Education' },
+]
+
+const ease = [0.22, 1, 0.36, 1] as const
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [active, setActive] = useState('')
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setScrolled(window.scrollY > 12)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`)
+        })
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
+    )
+    links.forEach(({ href }) => {
+      const el = document.getElementById(href.slice(1))
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [menuOpen])
+
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'dark:bg-black/80 bg-white/80 backdrop-blur-lg shadow-lg shadow-yellow-500/20'
-          : 'bg-transparent'
-      }`}
-    >
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
+    <header className="sticky top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
+      <motion.div
+        animate={{
+          maxWidth: scrolled && !menuOpen ? '64rem' : '82.5rem',
+        }}
+        transition={{ duration: 0.6, ease }}
+        className={`mx-auto transition-[background,border-color,backdrop-filter,box-shadow] duration-500 ease-out ${
+          scrolled || menuOpen
+            ? 'glass-panel rounded-2xl'
+            : 'rounded-2xl border border-transparent bg-transparent'
+        }`}
+      >
+        <div className="flex h-14 items-center justify-between gap-4 px-4 md:h-16 md:px-5">
+          <a
+            href="#home"
+            className="group flex items-center gap-2.5"
+            onClick={() => setMenuOpen(false)}
           >
-            <a
-              href="#home"
-              className="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-amber-400 to-orange-400 dark:from-yellow-400 dark:via-amber-400 dark:to-orange-400 bg-clip-text text-transparent hover:from-yellow-300 hover:via-amber-300 hover:to-orange-300 transition-all duration-300"
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-accent font-mono text-[11px] font-bold text-[#1a140e] transition-transform duration-300 group-hover:rotate-6">
+              SA
+            </span>
+            <span className="font-display text-[0.95rem] font-semibold tracking-tight transition-colors group-hover:text-accent">
+              Sheena&nbsp;Mae
+            </span>
+          </a>
+
+          <nav className="hidden items-center gap-1 lg:flex">
+            {links.map((link) => {
+              const isActive = active === link.href
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`relative rounded-full px-3.5 py-2 font-mono text-[10.5px] uppercase tracking-[0.14em] transition-colors duration-300 ${
+                    isActive ? 'text-ink' : 'text-muted hover:text-ink'
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      className="absolute inset-0 rounded-full bg-accent/14 ring-1 ring-accent/30"
+                      transition={{ type: 'spring', stiffness: 420, damping: 34 }}
+                    />
+                  )}
+                  <span className="relative">{link.label}</span>
+                </a>
+              )
+            })}
+            <Link
+              href="/resume"
+              className="rounded-full px-3.5 py-2 font-mono text-[10.5px] uppercase tracking-[0.14em] text-muted transition-colors duration-300 hover:text-accent"
             >
-              Sheena Mae Arquillo
+              Resume
+            </Link>
+          </nav>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="mailto:arquillosheenamae@gmail.com"
+              className="group hidden items-center gap-1.5 rounded-full bg-accent px-4 py-2 font-mono text-[10.5px] uppercase tracking-[0.14em] text-[#1a140e] shadow-[0_10px_26px_-14px_color-mix(in_srgb,var(--accent)_90%,transparent)] transition-transform duration-300 hover:-translate-y-0.5 sm:inline-flex"
+            >
+              Hire me
+              <FiArrowUpRight className="text-xs transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
-          </motion.div>
-          
-          <motion.button
-            onClick={toggleTheme}
-            whileHover={{ scale: 1.1, rotate: 15 }}
-            whileTap={{ scale: 0.9 }}
-            className="p-3 rounded-full bg-gradient-to-r from-yellow-600/20 to-amber-600/20 dark:from-yellow-600/20 dark:to-amber-600/20 border border-yellow-500/30 dark:border-yellow-500/30 hover:border-yellow-400 hover:from-yellow-600/40 hover:to-amber-600/40 transition-all duration-300"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? (
-              <FiSun className="text-yellow-400 text-xl" />
-            ) : (
-              <FiMoon className="text-amber-600 text-xl" />
-            )}
-          </motion.button>
+
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle day or night theme"
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-accent transition-colors hover:border-accent hover:bg-accent/10"
+            >
+              {theme === 'dark' ? <FiMoon className="text-sm" /> : <FiSun className="text-sm" />}
+            </button>
+
+            <button
+              onClick={() => setMenuOpen((o) => !o)}
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-line text-ink transition-colors hover:border-accent lg:hidden"
+            >
+              {menuOpen ? <FiX /> : <FiMenu />}
+            </button>
+          </div>
         </div>
-      </nav>
-    </motion.header>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.nav
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease }}
+              className="overflow-hidden border-t border-line lg:hidden"
+            >
+              <ul className="flex flex-col p-3">
+                {links.map((link, i) => (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.06 + i * 0.05, duration: 0.35, ease }}
+                  >
+                    <a
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="flex items-center justify-between rounded-xl px-3 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:bg-accent/10 hover:text-ink"
+                    >
+                      {link.label}
+                      <span className="text-accent">{String(i + 1).padStart(2, '0')}</span>
+                    </a>
+                  </motion.li>
+                ))}
+                <motion.li
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.06 + links.length * 0.05, duration: 0.35, ease }}
+                >
+                  <Link
+                    href="/resume"
+                    onClick={() => setMenuOpen(false)}
+                    className="flex items-center justify-between rounded-xl px-3 py-3 font-mono text-[11px] uppercase tracking-[0.16em] text-muted transition-colors hover:bg-accent/10 hover:text-ink"
+                  >
+                    Resume
+                    <FiArrowUpRight className="text-accent" />
+                  </Link>
+                </motion.li>
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </motion.div>
+    </header>
   )
 }
-

@@ -8,29 +8,46 @@ module.exports = {
   ],
   theme: {
     extend: {
-      animation: {
-        'gradient': 'gradient 8s linear infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      colors: {
+        paper: 'var(--bg)',
+        'paper-raised': 'var(--bg-solid)',
+        ink: 'var(--ink)',
+        muted: 'var(--muted)',
+        accent: 'var(--accent)',
+        accent2: 'var(--accent-2)',
+        line: 'var(--line)',
+      },
+      borderColor: {
+        DEFAULT: 'var(--line)',
+      },
+      fontFamily: {
+        display: ['var(--font-display)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      maxWidth: {
+        container: '1320px',
+        prose: '62ch',
+      },
+      transitionTimingFunction: {
+        out: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        swift: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center'
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center'
-          },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+        'pulse-ring': {
+          '0%': { transform: 'scale(0.9)', opacity: '0.7' },
+          '100%': { transform: 'scale(2.1)', opacity: '0' },
         },
+      },
+      animation: {
+        'fade-up': 'fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'pulse-ring': 'pulse-ring 2.4s cubic-bezier(0.22, 1, 0.36, 1) infinite',
       },
     },
   },
   plugins: [],
 }
-

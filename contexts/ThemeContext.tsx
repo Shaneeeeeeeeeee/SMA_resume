@@ -1,6 +1,7 @@
 'use client'
 
 import { createContext, useContext, useEffect, useState } from 'react'
+import { MotionConfig } from 'framer-motion'
 
 type Theme = 'light' | 'dark'
 
@@ -12,22 +13,18 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>('light')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     // Get initial theme
     const savedTheme = localStorage.getItem('theme') as Theme
-    let initialTheme: Theme = 'dark'
-    
+    let initialTheme: Theme = 'light'
+
     if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
       initialTheme = savedTheme
-    } else {
-      if (typeof window !== 'undefined') {
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-        initialTheme = prefersDark ? 'dark' : 'light'
-      }
     }
+    // Otherwise default to Day (light) regardless of system preference.
     
     setTheme(initialTheme)
     
@@ -61,7 +58,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   // Always provide context, even before mounted
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      {children}
+      <MotionConfig reducedMotion="user">{children}</MotionConfig>
     </ThemeContext.Provider>
   )
 }
