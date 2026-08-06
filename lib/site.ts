@@ -3,10 +3,10 @@
  * to a custom domain; everything else (metadata, sitemap, resume) follows it.
  */
 export const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sma-resume.vercel.app'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://sheena-arquillo.vercel.app'
 ).replace(/\/$/, '')
 
-/** Display form of the portfolio URL, e.g. "sma-resume.vercel.app". */
+/** Display form of the portfolio URL, e.g. "sheena-arquillo.vercel.app". */
 export const siteLabel = siteUrl.replace(/^https?:\/\//, '')
 
 export const person = {
