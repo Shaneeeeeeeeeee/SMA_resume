@@ -19,8 +19,10 @@ function Word({
   range: [number, number]
 }) {
   const opacity = useTransform(progress, range, [0.16, 1])
+  // Inline + real space characters (not flex + margin) so crawlers and
+  // copy/paste read normal words with spaces between them.
   return (
-    <motion.span style={{ opacity }} className="mr-[0.28em] inline-block">
+    <motion.span style={{ opacity }} className="inline">
       {children}
     </motion.span>
   )
@@ -40,13 +42,14 @@ export default function ScrollText({ text, className = '' }: ScrollTextProps) {
   if (reduce) return <p className={className}>{text}</p>
 
   return (
-    <p ref={ref} className={`relative flex flex-wrap ${className}`}>
+    <p ref={ref} className={className}>
       {words.map((word, i) => {
         const start = i / words.length
         const end = start + 1 / words.length
+        const chunk = i < words.length - 1 ? `${word} ` : word
         return (
           <Word key={`${word}-${i}`} progress={scrollYProgress} range={[start, end]}>
-            {word}
+            {chunk}
           </Word>
         )
       })}

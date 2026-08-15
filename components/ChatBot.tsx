@@ -117,9 +117,9 @@ function getAnswer(q: string): Reply {
     )
   }
 
-  if (/(contact|email|reach|hire|hiring|linkedin|connect|available|open to|message|remote|hybrid|social)/.test(t)) {
+  if (/(contact|email|reach|hire|hiring|linkedin|connect|available|open to|message|remote|hybrid|onsite|on-site|social)/.test(t)) {
     return reply(
-      'Sheena is open to full-time roles in full-stack development or data analysis (remote or hybrid preferred).\n\nPreferred contact:',
+      'Sheena is open to full-time roles in full-stack development or data analysis (onsite, hybrid, or remote).\n\nPreferred contact:',
       true
     )
   }
@@ -130,7 +130,7 @@ function getAnswer(q: string): Reply {
 
   if (/(who|about|herself|sheena|introduce)/.test(t)) {
     return reply(
-      "Sheena Mae Arquillo is a full-stack developer, data analyst, and project lead. She ships production work at Tee Vision Printing (storefront, internal tools, Google Ads), leads thesis commissions through production deployment, and is a Dean's List BSIT Major in Business Analytics."
+      "Sheena Mae Arquillo is a full-stack developer, data analyst, and project lead. She ships production work at Tee Vision Printing (storefront, internal tools, Chrome extensions, Google Ads), delivers client commissions such as DFB Smart Shop, and led her university capstone (Automated Sales and Inventory). She is a Dean's List BSIT Major in Business Analytics."
     )
   }
 
@@ -148,15 +148,21 @@ function getAnswer(q: string): Reply {
     )
   }
 
+  if (/(chrome\s*extension|browser\s*extension)/.test(t)) {
+    return reply(
+      'At Tee Vision Printing she built Chrome extensions that consolidate finance data from external platforms into internal reporting, used alongside the Employee Portal, Ads & Ops portal, and CRM tools.'
+    )
+  }
+
   if (/(experience|work history|career|roles?|job|amazon|alorica|intern)/.test(t)) {
     return reply(
-      'Current: Full-Stack at Tee Vision Printing (Apr 2026 to present). Also: thesis/capstone commissions (Project Lead), Tech Executive Labs internship on Bookside (Feb to May 2026), and Amazon/Alorica CSR (2025). Scroll Experience on the site for bullets.'
+      'Current: Full-Stack at Tee Vision Printing (Apr 2026 to present). Also: freelance client commissions (DFB Smart Shop), university capstone (Automated Sales / Phoebe), Tech Executive Labs internship on Bookside (Feb to May 2026), and Amazon/Alorica CSR (2025). Scroll Experience on the site for bullets.'
     )
   }
 
   if (/(tvp|tee vision|storefront|teevisionprinting)/.test(t)) {
     return reply(
-      'At TVP she contributes to the live storefront (teevisionprinting.com) and built three internal systems in-house: the Employee Portal PWA, the Ads & Ops portal, and CRM/auth tooling. She also cut operating costs by 60% by refactoring a fragmented codebase and consolidating hosting. Storefront work is team contribution, not personal ownership of the business.'
+      'At TVP she contributes to the live storefront (teevisionprinting.com) and built three internal systems in-house: the Employee Portal PWA, the Ads & Ops portal, and CRM/auth tooling, plus Chrome extensions that pull finance data from external platforms into internal reporting. She also reduced operating costs by refactoring a fragmented codebase and consolidating hosting. Storefront work is team contribution, not personal ownership of the business.'
     )
   }
 
@@ -174,13 +180,13 @@ function getAnswer(q: string): Reply {
 
   if (/(dfb|smart.?shop|visual search|rider)/.test(t)) {
     return reply(
-      'DFB Smart Shop (dfbsupply.store) is a thesis commission she led: ecommerce, visual search (88.9% hold-out accuracy), inventory, and rider tracking. See Projects for screenshots.'
+      'DFB Smart Shop (dfbsupply.store) is a client commission she led: ecommerce, visual search (88.9% hold-out accuracy), inventory, and rider tracking. See Projects for screenshots.'
     )
   }
 
-  if (/(phoebe|automated sales|pharmacy)/.test(t)) {
+  if (/(phoebe|automated sales|pharmacy|capstone)/.test(t)) {
     return reply(
-      'Automated Sales & Inventory (Phoebe) is her thesis as Project Lead: pharmacy POS across 690+ medicines, inventory and expiry tracking, Prophet sales forecasting, sustainability analytics, and an AI pharmacy assistant. Live demo: phoebefrontend.vercel.app.'
+      'Automated Sales & Inventory (Phoebe) is her university capstone as Project Lead: pharmacy POS across 690+ medicines, inventory and expiry tracking, Prophet sales forecasting, sustainability analytics, and an AI pharmacy assistant. Live demo: phoebefrontend.vercel.app.'
     )
   }
 
@@ -196,9 +202,9 @@ function getAnswer(q: string): Reply {
     )
   }
 
-  if (/(hrms|peopleconnect|pharma|rgo|commission|thesis|capstone|freelance|project lead)/.test(t)) {
+  if (/(hrms|peopleconnect|pharma|rgo|commission|thesis|freelance|project lead)/.test(t)) {
     return reply(
-      'She leads thesis and capstone commissions end to end. Shipped examples include DFB Smart Shop and Automated Sales (Phoebe), plus school builds like SaveME, HRMS, and RGO Lipa (C#). Browse Projects for demos.'
+      'Client commission example: DFB Smart Shop. University capstone: Automated Sales (Phoebe). Other school builds include SaveME, HRMS, and RGO Lipa (C#). Browse Projects for demos.'
     )
   }
 
@@ -210,13 +216,13 @@ function getAnswer(q: string): Reply {
 
   if (/(skill|stack|tech|python|react|flask|php|sql|frontend|backend|c#|tools?)/.test(t)) {
     return reply(
-      'Core stack: React/PWA, JavaScript, Python/Flask, PHP, C#/WinForms, REST APIs, PostgreSQL/Supabase, data analysis and dashboards, plus Google Ads, SEO, Clarity, and applied AI (visual search, forecasting).'
+      'Core stack: React/PWA, Chrome Extensions, JavaScript, Python/Flask, PHP, C#/WinForms, REST APIs, PostgreSQL/Supabase, data analysis and dashboards, plus Google Ads, SEO, Clarity, and applied AI (visual search, forecasting).'
     )
   }
 
   if (/(education|school|degree|graduate|university|dean|bsit|course|major)/.test(t)) {
     return reply(
-      "BSIT Major in Business Analytics, Batangas State University (Lipa), graduated 2026. Dean's List Scholar."
+      "BSIT Major in Business Analytics, Batangas State University (Lipa), graduated 2026. Dean's List Scholar. Capstone: Automated Sales and Inventory (Phoebe)."
     )
   }
 
@@ -230,14 +236,14 @@ function getAnswer(q: string): Reply {
 
   if (/(proof|metric|stat|number)/.test(t)) {
     return reply(
-      'Portfolio highlights include a 60% operating cost reduction at Tee Vision Printing, three internal systems shipped in-house, more than ten live demos and prototypes, and hands-on Google Ads experience. On the applied AI side: image-based product search at 88.9% accuracy and demand forecasting at 93.5%. For private or account-level metrics, please contact her directly.',
+      'Portfolio highlights include operating-cost reduction at Tee Vision Printing through codebase and hosting consolidation, three internal systems shipped in-house, Chrome extensions for finance reporting, more than ten live demos and prototypes, and hands-on Google Ads experience. On the applied AI side: image-based product search at 88.9% hold-out accuracy. For private or account-level metrics, please contact her directly.',
       true
     )
   }
 
   if (/(ai|llm|machine learning|forecast)/.test(t)) {
     return reply(
-      'Her strongest applied AI example in the portfolio is DFB visual search (MobileNet with KNN). She has also built forecasting-oriented recommendations (Phoebe) and has training in LLM fine-tuning. For interview-depth discussion, please contact her directly.',
+      'Her strongest applied AI example in the portfolio is DFB visual search (MobileNet with KNN). She has also built forecasting-oriented recommendations in her university capstone (Phoebe) and has training in LLM fine-tuning. For interview-depth discussion, please contact her directly.',
       true
     )
   }

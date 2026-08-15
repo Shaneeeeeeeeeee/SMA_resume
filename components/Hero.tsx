@@ -66,7 +66,7 @@ function Intro() {
           <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent" />
         </span>
         <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-          Open to full-time · Remote or hybrid
+          Open to full-time · Onsite, hybrid, or remote
         </span>
       </motion.div>
 
@@ -116,8 +116,8 @@ function Intro() {
         transition={{ duration: 0.7, delay: 0.28, ease }}
         className="mt-4 max-w-[46ch] text-sm leading-relaxed text-muted md:text-[0.95rem]"
       >
-        At Tee Vision Printing I work on the live storefront, internal tools, and Google Ads. I also
-        lead thesis projects from scope through production deployment.
+        At Tee Vision Printing I work on the live storefront, internal tools, Chrome extensions, and
+        Google Ads. I also lead client commissions from scope through production deployment.
       </motion.p>
 
       <motion.div
@@ -232,7 +232,8 @@ function Proof() {
             Systems
           </span>
           <span className="mx-2 text-line">/</span>
-          Employee Portal PWA · Advertising and SEO operations portal · CRM and authentication
+          Employee Portal PWA · Ads and SEO operations portal · CRM and authentication · Chrome
+          extensions
         </li>
         <li>
           <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-accent">
@@ -246,7 +247,7 @@ function Proof() {
             Background
           </span>
           <span className="mx-2 text-line">/</span>
-          Tech Executive Labs (Bookside) · thesis and capstone commissions
+          Tech Executive Labs (Bookside) · client commissions · university capstone
         </li>
       </ul>
 

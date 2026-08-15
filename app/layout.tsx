@@ -24,7 +24,7 @@ const jetbrains = JetBrains_Mono({
 
 const title = 'Sheena Mae Arquillo | Full-Stack Developer & Data Analyst'
 const description =
-  'Full-stack developer and data analyst shipping production software: ecommerce, internal business systems, Google Ads, and applied AI for visual search and demand forecasting. Open to full-time remote or hybrid roles.'
+  'Full-stack developer and data analyst shipping production software: ecommerce, internal business systems, Google Ads, and applied AI for visual search and demand forecasting. Open to full-time onsite, hybrid, or remote roles.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -11,7 +11,7 @@ const ease = [0.22, 1, 0.36, 1] as const
 
 const facts = [
   { k: 'Base', v: 'Batangas, Philippines' },
-  { k: 'Looking for', v: 'Full-stack or data analyst, remote or hybrid' },
+  { k: 'Looking for', v: 'Full-stack or data analyst · onsite, hybrid, or remote' },
 ]
 
 export default function Background() {
@@ -31,8 +31,9 @@ export default function Background() {
             transition={{ duration: 0.7, ease }}
             className="mt-8 max-w-prose text-sm leading-relaxed text-muted md:text-base"
           >
-            Outside Tee Vision Printing I lead thesis and capstone commissions in the Philippines
-            through production deployment, including DFB Smart Shop and Automated Sales and Inventory.
+            Outside Tee Vision Printing I take on client commissions through production deployment,
+            including DFB Smart Shop. Automated Sales and Inventory is my university capstone, also
+            shipped to production.
           </motion.p>
 
           <dl className="mt-10 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">

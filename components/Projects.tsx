@@ -213,12 +213,12 @@ const projects: Project[] = [
   {
     id: 'dfb',
     title: 'DFB Smart Shop',
-    tag: 'Thesis Commission · Project Lead',
+    tag: 'Client Commission · Project Lead',
     category: 'commission',
     summary:
       'Glass & aluminum ecommerce: visual search (88.9% hold-out accuracy), quotes, inventory, and rider tracking.',
     description: [
-      'Commissioned end-to-end system for DFB Glass & Aluminum Supply: shop catalog, custom-size quotes, and admin inventory/orders.',
+      'Client commission for DFB Glass & Aluminum Supply: shop catalog, custom-size quotes, and admin inventory/orders.',
       'AI visual search (MobileNet + KNN) hit 88.9% overall accuracy on a hold-out set (macro F1 0.90), with live rider location sharing for deliveries.',
     ],
     stack: ['Project Lead', 'Full-Stack', 'Applied AI', 'Visual Search', 'Maps'],
@@ -245,12 +245,12 @@ const projects: Project[] = [
   {
     id: 'thesis-sales',
     title: 'Automated Sales & Inventory',
-    tag: 'Thesis · Project Lead',
+    tag: 'University Capstone · Project Lead',
     category: 'academic',
     summary:
       'Pharmacy POS and inventory across 690+ medicines: sales, expiry tracking, Prophet sales forecasting, and an AI assistant. Live demo online.',
     description: [
-      'Led end-to-end delivery of Phoebe Drugstore: POS and sales flows, inventory and expiry tracking, staff accounts, and role-based manager and staff portals.',
+      'University capstone: led end-to-end delivery of Phoebe Drugstore — POS and sales flows, inventory and expiry tracking, staff accounts, and role-based manager and staff portals.',
       'Sales forecasting per product with Prophet and automatic model selection, reporting accuracy, MAPE, MAE, and RMSE against a recent actual-sales window so managers can see when demand runs below plan.',
       'Sustainability analytics scores waste, expiry risk, and slow turnover, with low-stock reorders, returns, and disposal tracking in one place.',
       'AI pharmacy assistant answers medicine, stock, and product-location questions across the catalog. Built on Flask with Supabase PostgreSQL, plus UAT and deployment documentation.',

@@ -10,13 +10,12 @@ export const metadata: Metadata = {
 }
 
 /* ------------------------------------------------------------------ *
- * Content is budgeted to one Letter page. Bullets are written to land
- * on a single rendered line each; lengthening one risks a second page.
- * Verify with scripts/check-resume-page.ps1 after editing.
+ * Content mirrors Resume_Sheena_Mae_Arquillo.pdf. Budgeted to one
+ * Letter page. Verify with scripts/check-resume-page.ps1 after editing.
  * ------------------------------------------------------------------ */
 
 const summary =
-  'Full-stack developer and data analyst with professional experience delivering production web applications and internal business systems. At Tee Vision Printing, reduced operating costs by 60% by shipping three in-house systems that organize and analyze business data in real time.'
+  'Full-stack developer and data analyst delivering production web applications, internal business systems, and applied analytics. Builds complete solutions covering interface, backend services, and the reporting layer that measures results. Reduced operating costs at Tee Vision Printing while delivering internal systems that organize and analyze business data in real time. Leads projects from requirements gathering through user acceptance testing and deployment.'
 
 const skills: { label: string; items: string }[] = [
   {
@@ -24,22 +23,22 @@ const skills: { label: string; items: string }[] = [
     items: 'Python, JavaScript, PHP, C#, SQL, HTML, CSS',
   },
   {
-    label: 'Frameworks and Data',
-    items: 'React, Progressive Web Apps, Flask, REST APIs, PostgreSQL, Supabase, SQL Reporting',
+    label: 'Frameworks and Databases',
+    items: 'React, Progressive Web Apps, Flask, REST APIs, PostgreSQL, Supabase, Chrome Extensions',
   },
   {
     label: 'Analytics and AI',
     items:
-      'Predictive Analytics, Demand Forecasting (Prophet), Computer Vision (MobileNet, KNN), Dashboards',
+      'Predictive Analytics, Demand Forecasting (Prophet), Computer Vision (MobileNet, KNN), Dashboards, SQL Reporting',
   },
   {
     label: 'Growth and SEO',
-    items: 'Google Ads, Conversion Tracking, Technical SEO, Microsoft Clarity',
+    items: 'Google Ads, Conversion Tracking, Technical SEO, Microsoft Clarity, Performance Reporting',
   },
   {
     label: 'Delivery',
     items:
-      'Project Leadership, Requirements Gathering, User Acceptance Testing, Process Mapping, UI/UX Design, Figma',
+      'Project Leadership, Requirements Gathering, User Acceptance Testing, Process Mapping, UI/UX Design, Figma, Documentation',
   },
 ]
 
@@ -54,18 +53,19 @@ const experience: Entry[] = [
     heading: 'Full-Stack Developer, Tee Vision Printing',
     meta: 'Philadelphia, PA, USA (Remote) | Apr 2026 - Present',
     bullets: [
-      'Reduced operating costs by 60% through refactoring a fragmented codebase and consolidating hosting.',
-      'Developed three internal systems in-house that organize and analyze business data in real time.',
-      'Replaced a disconnected clock-in tool with one portal for 15 staff: time tracking, availability, notes, and projects.',
-      'Maintain and enhance teevisionprinting.com, delivering user experience, performance, and production fixes.',
-      'Manage Google Ads campaigns, covering conversion tracking, funnel diagnostics, and Microsoft Clarity analysis.',
+      'Reduced operating costs by refactoring a fragmented codebase into maintainable structured code and consolidating hosting.',
+      'Designed and delivered three internal systems in-house, including an employee portal PWA used by 15 staff for role-based access, time tracking, availability, and project management.',
+      'Built an operations portal covering expenses, advertising, and SEO, plus CRM and authentication tooling.',
+      'Developed Chrome extensions that consolidate finance data from external platforms into internal reporting.',
+      'Maintain and improve the live company website, delivering user experience, performance, and production fixes.',
+      'Manage Google Ads campaigns, conversion tracking, and funnel diagnostics, pairing campaign data with Microsoft Clarity.',
     ],
   },
   {
     heading: 'Freelance Full-Stack Developer and Project Lead, Self-Employed',
     meta: 'Philippines (Remote) | 2025 - Present',
     bullets: [
-      'Lead client systems end to end, including DFB Smart Shop ecommerce and a pharmacy POS with demand forecasting.',
+      'Deliver commissioned client systems end to end, covering scoping, development, UAT, and production deployment, including the DFB Smart Shop ecommerce platform.',
     ],
   },
   {
@@ -73,33 +73,33 @@ const experience: Entry[] = [
     meta: 'Batangas, Philippines (Hybrid) | Feb 2026 - May 2026',
     bullets: [
       'Led information architecture and digital publishing workflows for the Bookside marketplace product.',
-      'Prototyped seller-facing analytics views in Figma for sales funnel and product performance.',
+      'Prototyped seller-facing analytics views in Figma covering sales funnel and product performance.',
     ],
   },
   {
     heading: 'Customer Service Representative, Alorica (Amazon account)',
     meta: 'Lipa City, Philippines | Jun 2025 - Aug 2025',
     bullets: [
-      'Resolved high-volume customer issues against service level targets; earned performance commendations.',
+      'Resolved high-volume customer issues against service level targets and earned performance commendations.',
     ],
   },
 ]
 
 const projects: Entry[] = [
   {
-    heading: 'DFB Smart Shop, Ecommerce Platform with AI Visual Search',
-    meta: 'Project Lead | 2025 - 2026 | dfbsupply.store | Python, Flask, MobileNet, KNN, PostgreSQL',
+    heading: 'DFB Smart Shop, Ecommerce Platform with Visual Search',
+    meta: 'Client Commission · Project Lead | 2025 - 2026 | dfbsupply.store | Python, Flask, MobileNet, KNN, PostgreSQL',
     bullets: [
-      'Led full delivery of catalog, custom-size quoting, inventory, admin orders, and live rider tracking.',
+      'Led full delivery of catalog, custom-size quoting, inventory, administrative order handling, and live rider tracking.',
       'Implemented image-based product search reaching 88.9% accuracy and 0.90 macro F1 on a hold-out set.',
     ],
   },
   {
     heading: 'Automated Sales and Inventory, Pharmacy POS with Demand Forecasting',
-    meta: 'Project Lead | 2025 - 2026 | phoebefrontend.vercel.app | Flask, Supabase PostgreSQL, Prophet',
+    meta: 'University Capstone · Project Lead | 2025 - 2026 | phoebefrontend.vercel.app | Flask, Supabase PostgreSQL, Prophet',
     bullets: [
       'Developed point-of-sale, inventory, and expiry tracking across 690+ medicines with role-based portals.',
-      'Integrated per-product Prophet forecasting at 93.5% accuracy, waste analytics, and an AI stock assistant.',
+      'Integrated per-product Prophet demand forecasting, waste analytics, and stock recommendations.',
     ],
   },
 ]
@@ -167,7 +167,7 @@ export default function ResumePage() {
         </section>
 
         <section>
-          <h2 className="resume-h2">Projects</h2>
+          <h2 className="resume-h2">Key Projects</h2>
           {projects.map((entry) => (
             <EntryBlock key={entry.heading} entry={entry} />
           ))}
@@ -180,8 +180,14 @@ export default function ResumePage() {
               Bachelor of Science in Information Technology, Major in Business Analytics
             </h3>
             <p className="resume-meta">
-              Batangas State University, Lipa City, Philippines | Graduated 2026 | Dean&apos;s List
+              Batangas State University, Lipa City, Philippines | Graduated 2026
             </p>
+            <ul className="resume-bullets">
+              <li>
+                Dean&apos;s List Scholar and Capstone Project Lead. Coursework in systems analysis,
+                data analysis, and database systems.
+              </li>
+            </ul>
           </article>
         </section>
       </main>

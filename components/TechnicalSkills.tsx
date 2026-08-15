@@ -35,7 +35,7 @@ const skillCategories: { category: string; skills: string[] }[] = [
   },
   {
     category: 'Frontend',
-    skills: ['React', 'PWA', 'JavaScript', 'HTML/CSS', 'UI/UX', 'Figma'],
+    skills: ['React', 'PWA', 'Chrome Extensions', 'JavaScript', 'HTML/CSS', 'UI/UX', 'Figma'],
   },
   {
     category: 'Backend',

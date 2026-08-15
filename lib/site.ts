@@ -13,7 +13,7 @@ export const person = {
   name: 'Sheena Mae Arquillo',
   title: 'Full-Stack Developer | Data Analyst',
   location: 'Batangas, Philippines',
-  availability: 'Open to Remote or Hybrid',
+  availability: 'Open to Onsite, Hybrid, or Remote',
   email: 'arquillosheenamae@gmail.com',
   phone: '+63 938 849 7821',
   linkedin: 'https://www.linkedin.com/in/sheena-mae-arquillo-05b169399',

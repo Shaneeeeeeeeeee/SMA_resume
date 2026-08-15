@@ -56,7 +56,7 @@ export default function Footer() {
           transition={{ duration: 0.7, delay: 0.14, ease }}
           className="mt-8 max-w-prose text-sm leading-relaxed text-muted md:text-base"
         >
-          Open to full-time full-stack or data analyst roles, remote or hybrid.
+          Open to full-time full-stack or data analyst roles — onsite, hybrid, or remote.
         </motion.p>
 
         <motion.div

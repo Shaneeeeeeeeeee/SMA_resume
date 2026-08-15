@@ -11,15 +11,21 @@ interface CounterProps {
   duration?: number
 }
 
-/** Counts up once when scrolled into view. */
+/**
+ * Counts up once when scrolled into view.
+ * SSR and no-JS HTML always contain the final value (not 0), so crawlers
+ * and AI summarizers see the real proof points.
+ */
 export default function Counter({ value, suffix = '', className = '', duration = 1100 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null)
   const inView = useInView(ref, { once: true, margin: '-15% 0px' })
   const reduce = useReducedMotion()
-  const [display, setDisplay] = useState(reduce ? value : 0)
+  const [display, setDisplay] = useState(value)
+  const started = useRef(false)
 
   useEffect(() => {
-    if (!inView || reduce) return
+    if (!inView || reduce || started.current) return
+    started.current = true
     let raf = 0
     const start = performance.now()
     const tick = (now: number) => {
@@ -28,6 +34,7 @@ export default function Counter({ value, suffix = '', className = '', duration =
       setDisplay(Math.round(eased * value))
       if (t < 1) raf = requestAnimationFrame(tick)
     }
+    setDisplay(0)
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
   }, [inView, reduce, value, duration])
