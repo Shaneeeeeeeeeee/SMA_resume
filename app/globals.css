@@ -406,9 +406,9 @@ section[id] {
 }
 
 /* ── ATS resume document ──────────────────────────────────────────────
-   Deliberately plain: one column, standard system fonts, real headings
-   and lists, no tables/columns/images. Resume parsers read this layout
-   reliably, and it prints to a text-selectable PDF.
+   Mirrors public/Resume_Sheena_Mae_Arquillo.pdf: one column, Calibri/
+   Arial stack, dense Letter layout. Keep spacing tight so Education
+   sits on the same page as Experience (no large empty footer gap).
    ------------------------------------------------------------------- */
 .resume-page {
   position: relative;
@@ -418,52 +418,47 @@ section[id] {
   padding: 2rem 0 4rem;
 }
 
-/* Sizing is budgeted so the document lands on a single Letter page at
-   0.5in margins. Changing the font size or spacing here will overflow. */
 .resume-doc {
-  /* 8.5in sheet minus 0.5in margins keeps the on-screen line breaks
-     identical to the printed ones. */
-  box-sizing: content-box;
-  max-width: 7.5in;
+  box-sizing: border-box;
+  width: 8.5in;
+  max-width: calc(100% - 2rem);
   margin: 0 auto;
-  padding: 0.5in;
+  padding: 0.5in 0.6in;
   background: #ffffff;
   box-shadow: 0 8px 30px -12px rgba(0, 0, 0, 0.25);
   color: #000000;
-  font-family: Arial, Helvetica, 'Liberation Sans', sans-serif;
-  font-size: 9.5pt;
-  line-height: 1.2;
+  font-family: Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.22;
   letter-spacing: 0;
 }
 
 .resume-doc section {
-  margin-top: 7pt;
+  margin-top: 8pt;
 }
 
 .resume-name {
   font-family: inherit;
-  font-size: 17pt;
+  font-size: 18pt;
   font-weight: 700;
-  letter-spacing: 0.5pt;
+  letter-spacing: 0.4pt;
   text-transform: uppercase;
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .resume-title {
   margin-top: 2pt;
-  font-size: 10.5pt;
+  font-size: 11pt;
   font-weight: 700;
   color: #1a1a1a;
 }
 
 .resume-contact {
-  margin-top: 1pt;
+  margin-top: 2pt;
   font-size: 9pt;
   color: #222222;
 }
 
-/* Anchor text is the URL itself, so parsers read it whether or not they
-   follow the href. Underline on screen only; flat black in print. */
 .resume-doc a {
   color: #0b3d91;
   text-decoration: underline;
@@ -471,21 +466,22 @@ section[id] {
 
 .resume-h2 {
   font-family: inherit;
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.6pt;
-  padding-bottom: 1.5pt;
-  border-bottom: 1pt solid #000000;
-  margin-bottom: 4pt;
+  letter-spacing: 0.5pt;
+  padding-bottom: 2pt;
+  border-bottom: 1.25pt solid #000000;
+  margin: 0 0 5pt;
 }
 
 .resume-body {
   text-align: left;
+  margin: 0;
 }
 
 .resume-entry {
-  margin-top: 5pt;
+  margin-top: 6pt;
 }
 .resume-entry:first-of-type {
   margin-top: 0;
@@ -493,27 +489,34 @@ section[id] {
 
 .resume-role {
   font-family: inherit;
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-weight: 700;
+  margin: 0;
 }
 
 .resume-meta {
-  font-size: 9pt;
+  font-size: 9.5pt;
   color: #333333;
+  margin: 0;
+  font-style: italic;
 }
 
 .resume-bullets,
 .resume-skills {
-  margin: 2pt 0 0 0;
-  padding-left: 14pt;
+  margin: 2pt 0 0;
+  padding-left: 16pt;
   list-style: disc outside;
 }
 .resume-bullets li,
 .resume-skills li {
   margin-bottom: 1.5pt;
+  padding-left: 1pt;
 }
 .resume-skills {
   margin-top: 0;
+}
+.resume-skills li {
+  margin-bottom: 1pt;
 }
 
 @media print {
@@ -543,6 +546,7 @@ section[id] {
   }
 
   .resume-doc {
+    width: auto;
     max-width: none;
     margin: 0;
     padding: 0;

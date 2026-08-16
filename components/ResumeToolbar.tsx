@@ -1,10 +1,13 @@
 'use client'
 
-import { FiArrowLeft, FiDownload } from 'react-icons/fi'
+import { FiArrowLeft, FiDownload, FiExternalLink } from 'react-icons/fi'
+
+/** Real resume file hosted in /public — identical to the file you send employers. */
+export const RESUME_PDF_HREF = '/Resume_Sheena_Mae_Arquillo.pdf'
 
 /**
  * Screen-only controls above the resume document. Hidden in print via `no-print`
- * so the exported PDF contains nothing but the resume itself.
+ * so a browser print still exports only the resume body.
  */
 export default function ResumeToolbar() {
   return (
@@ -17,17 +20,27 @@ export default function ResumeToolbar() {
         Portfolio
       </a>
 
-      <button
-        type="button"
-        onClick={() => window.print()}
+      <a
+        href={RESUME_PDF_HREF}
+        download="Resume_Sheena_Mae_Arquillo.pdf"
         className="inline-flex items-center gap-2 rounded-full bg-[#f0b400] px-5 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-[#1a140e] transition-transform hover:-translate-y-0.5"
       >
         <FiDownload className="text-xs" />
         Download PDF
-      </button>
+      </a>
 
-      <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-500">
-        Print dialog: choose &ldquo;Save as PDF&rdquo;, margins Default, background graphics off
+      <a
+        href={RESUME_PDF_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 rounded-full border border-neutral-300 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-neutral-700 transition-colors hover:border-neutral-500 hover:text-black"
+      >
+        <FiExternalLink className="text-xs" />
+        Open PDF
+      </a>
+
+      <p className="basis-full font-mono text-[10px] uppercase tracking-[0.12em] text-neutral-500">
+        Download serves the same PDF file as applications. The page below mirrors that document.
       </p>
     </div>
   )

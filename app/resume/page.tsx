@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import ResumeToolbar from '@/components/ResumeToolbar'
-import { person, siteLabel, siteUrl } from '@/lib/site'
+import { person } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'Resume',
@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 }
 
 /* ------------------------------------------------------------------ *
- * Content mirrors Resume_Sheena_Mae_Arquillo.pdf. Budgeted to one
- * Letter page. Verify with scripts/check-resume-page.ps1 after editing.
+ * Content and labels match public/Resume_Sheena_Mae_Arquillo.pdf
+ * exactly so the on-page view and the downloaded file stay in sync.
  * ------------------------------------------------------------------ */
 
 const summary =
-  'Full-stack developer and data analyst delivering production web applications, internal business systems, and applied analytics. Builds complete solutions covering interface, backend services, and the reporting layer that measures results. Reduced operating costs at Tee Vision Printing while delivering internal systems that organize and analyze business data in real time. Leads projects from requirements gathering through user acceptance testing and deployment.'
+  'Full stack developer and data analyst delivering production web applications, internal business systems, and applied analytics. Builds complete solutions covering interface, backend services, and the reporting layer that measures results. Reduced operating costs at Tee Vision Printing while delivering internal systems that organize and analyze business data in real time. Leads projects from requirements gathering through user acceptance testing and deployment.'
 
 const skills: { label: string; items: string }[] = [
   {
@@ -24,7 +24,8 @@ const skills: { label: string; items: string }[] = [
   },
   {
     label: 'Frameworks and Databases',
-    items: 'React, Progressive Web Apps, Flask, REST APIs, PostgreSQL, Supabase, Chrome Extensions',
+    items:
+      'React, Progressive Web Apps, Flask, REST APIs, PostgreSQL, Supabase, Chrome Extensions',
   },
   {
     label: 'Analytics and AI',
@@ -33,12 +34,13 @@ const skills: { label: string; items: string }[] = [
   },
   {
     label: 'Growth and SEO',
-    items: 'Google Ads, Conversion Tracking, Technical SEO, Microsoft Clarity, Performance Reporting',
+    items:
+      'Google Ads, Conversion Tracking, Technical SEO, Microsoft Clarity, Performance Reporting',
   },
   {
     label: 'Delivery',
     items:
-      'Project Leadership, Requirements Gathering, User Acceptance Testing, Process Mapping, UI/UX Design, Figma, Documentation',
+      'Project Leadership, Requirements Gathering, User Acceptance Testing, Process Mapping, UI and UX Design, Figma, Documentation',
   },
 ]
 
@@ -50,37 +52,37 @@ type Entry = {
 
 const experience: Entry[] = [
   {
-    heading: 'Full-Stack Developer, Tee Vision Printing',
-    meta: 'Philadelphia, PA, USA (Remote) | Apr 2026 - Present',
+    heading: 'Full Stack Developer, Tee Vision Printing',
+    meta: 'Philadelphia, Pennsylvania, USA (Remote) | April 2026 to Present',
     bullets: [
       'Reduced operating costs by refactoring a fragmented codebase into maintainable structured code and consolidating hosting.',
-      'Designed and delivered three internal systems in-house, including an employee portal PWA used by 15 staff for role-based access, time tracking, availability, and project management.',
-      'Built an operations portal covering expenses, advertising, and SEO, plus CRM and authentication tooling.',
+      'Designed and delivered three internal systems in house, including an employee portal progressive web app used by 15 staff for role based access, time tracking, availability, and project management.',
+      'Built an operations portal covering expenses, advertising, and SEO, plus customer relationship management and authentication tooling.',
       'Developed Chrome extensions that consolidate finance data from external platforms into internal reporting.',
       'Maintain and improve the live company website, delivering user experience, performance, and production fixes.',
       'Manage Google Ads campaigns, conversion tracking, and funnel diagnostics, pairing campaign data with Microsoft Clarity.',
     ],
   },
   {
-    heading: 'Freelance Full-Stack Developer and Project Lead, Self-Employed',
-    meta: 'Philippines (Remote) | 2025 - Present',
+    heading: 'Freelance Full Stack Developer and Project Lead, Self Employed',
+    meta: 'Philippines (Remote) | 2025 to Present',
     bullets: [
-      'Deliver commissioned client systems end to end, covering scoping, development, UAT, and production deployment, including the DFB Smart Shop ecommerce platform.',
+      'Deliver commissioned client systems end to end, covering scoping, development, user acceptance testing, and production deployment, including the DFB Smart Shop ecommerce platform.',
     ],
   },
   {
     heading: 'Product and Innovation Intern, Tech Executive Labs I.T. Solutions',
-    meta: 'Batangas, Philippines (Hybrid) | Feb 2026 - May 2026',
+    meta: 'Batangas, Philippines (Hybrid) | February 2026 to May 2026',
     bullets: [
       'Led information architecture and digital publishing workflows for the Bookside marketplace product.',
-      'Prototyped seller-facing analytics views in Figma covering sales funnel and product performance.',
+      'Prototyped seller facing analytics views in Figma covering sales funnel and product performance.',
     ],
   },
   {
-    heading: 'Customer Service Representative, Alorica (Amazon account)',
-    meta: 'Lipa City, Philippines | Jun 2025 - Aug 2025',
+    heading: 'Customer Service Representative, Alorica (Amazon Account)',
+    meta: 'Lipa City, Philippines | June 2025 to August 2025',
     bullets: [
-      'Resolved high-volume customer issues against service level targets and earned performance commendations.',
+      'Resolved high volume customer issues against service level targets and earned performance commendations.',
     ],
   },
 ]
@@ -88,23 +90,21 @@ const experience: Entry[] = [
 const projects: Entry[] = [
   {
     heading: 'DFB Smart Shop, Ecommerce Platform with Visual Search',
-    meta: 'Client Commission · Project Lead | 2025 - 2026 | dfbsupply.store | Python, Flask, MobileNet, KNN, PostgreSQL',
+    meta: 'Client Commission | Project Lead | 2025 to 2026 | dfbsupply.store | Python, Flask, MobileNet, KNN, PostgreSQL',
     bullets: [
-      'Led full delivery of catalog, custom-size quoting, inventory, administrative order handling, and live rider tracking.',
-      'Implemented image-based product search reaching 88.9% accuracy and 0.90 macro F1 on a hold-out set.',
+      'Led full delivery of catalog, custom size quoting, inventory, administrative order handling, and live rider tracking.',
+      'Implemented image based product search reaching 88.9 percent accuracy and 0.90 macro F1 score on a hold out set.',
     ],
   },
   {
-    heading: 'Automated Sales and Inventory, Pharmacy POS with Demand Forecasting',
-    meta: 'University Capstone · Project Lead | 2025 - 2026 | phoebefrontend.vercel.app | Flask, Supabase PostgreSQL, Prophet',
+    heading: 'Automated Sales and Inventory, Pharmacy Point of Sale with Demand Forecasting',
+    meta: 'University Capstone | Project Lead | 2025 to 2026 | phoebefrontend.vercel.app | Flask, Supabase PostgreSQL, Prophet',
     bullets: [
-      'Developed point-of-sale, inventory, and expiry tracking across 690+ medicines with role-based portals.',
-      'Integrated per-product Prophet demand forecasting, waste analytics, and stock recommendations.',
+      'Developed point of sale, inventory, and expiry tracking across more than 690 medicines with role based portals.',
+      'Integrated per product Prophet demand forecasting, waste analytics, and stock recommendations.',
     ],
   },
 ]
-
-/* ------------------------------------------------------------------ */
 
 function EntryBlock({ entry }: { entry: Entry }) {
   return (
@@ -126,20 +126,21 @@ export default function ResumePage() {
       <ResumeToolbar />
 
       <main className="resume-doc" lang="en">
-        {/* Contact block is plain text with URLs as their own anchor text, so a
-            parser reads the same string whether or not it follows the href. */}
         <header>
           <h1 className="resume-name">{person.name}</h1>
-          <p className="resume-title">Full-Stack Developer | Data Analyst</p>
+          <p className="resume-title">Full Stack Developer and Data Analyst</p>
           <p className="resume-contact">
-            {person.location} | {person.availability} |{' '}
-            <a href={`tel:${person.phone.replace(/\s+/g, '')}`}>{person.phone}</a> |{' '}
+            Batangas, Philippines | Open to Onsite, Hybrid, or Remote | +63 938 849 7821 |{' '}
             <a href={`mailto:${person.email}`}>{person.email}</a>
           </p>
           <p className="resume-contact">
-            <a href={siteUrl}>{siteLabel}</a> |{' '}
-            <a href={person.linkedin}>{person.linkedinLabel}</a> |{' '}
-            <a href={person.github}>{person.githubLabel}</a>
+            Portfolio:{' '}
+            <a href="https://sheena-arquillo.vercel.app">sheena-arquillo.vercel.app</a>
+            {' | '}
+            LinkedIn:{' '}
+            <a href={person.linkedin}>linkedin.com/in/sheena-mae-arquillo-05b169399</a>
+            {' | '}
+            GitHub: <a href={person.github}>github.com/ShinArquillo</a>
           </p>
         </header>
 
